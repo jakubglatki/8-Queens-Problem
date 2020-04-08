@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_8_Quuens_Problem"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="N-Queens Problem" Height="640" Width="1280">
     <Grid x:Name="gridView">
         <Grid.ColumnDefinitions>
@@ -18,7 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="15"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
 
