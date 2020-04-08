@@ -32,9 +32,9 @@
             <TextBlock x:Name="solvedText"  Margin="0,20,0,0" TextWrapping="Wrap" Text="Was the problem solved?" FontSize="20" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel x:Name="chooseSizePanel" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
+        <StackPanel x:Name="chooseSizePanel" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Top">
             <TextBlock x:Name="chooseBoardSizeText" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Board size" FontSize="20" FontWeight="Bold" />
-            <ComboBox x:Name="chooseBoardSizeBox" HorizontalAlignment="Center" Margin="0,20,0,0"  Width="Auto"/>
+            <ComboBox x:Name="chooseBoardSizeBox" HorizontalAlignment="Center" Margin="0,20,0,0"  Width="80"/>
         </StackPanel>
 
         <StackPanel x:Name="chooseAlgorithmPanel" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">

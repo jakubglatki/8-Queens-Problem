@@ -25,7 +25,7 @@ namespace _8_Quuens_Problem
         {
             manager = new Manager(this);
             InitializeComponent();
-
+            manager.AddBoardSizesToChooseList();
         }
 
         private void HillClimbingBox_Click(object sender, RoutedEventArgs e)

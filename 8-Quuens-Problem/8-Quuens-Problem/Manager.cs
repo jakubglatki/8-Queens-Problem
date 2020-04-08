@@ -26,7 +26,17 @@ namespace _8_Quuens_Problem
             window.hillClimbingBox.IsChecked = false;
             window.simulatedAnnealingBox.IsChecked = false;
             window.geneticAlgorithmBox.IsChecked = false;
-            //toggleButton.IsChecked = true;
+            toggleButton.IsChecked = true;
+        }
+
+        public void AddBoardSizesToChooseList()
+        {
+            for(int i=4; i<=12; i++)
+            {
+                string newItem = i + "x" + i;
+                window.chooseBoardSizeBox.Items.Add(newItem);
+            }
+            window.chooseBoardSizeBox.SelectedItem = window.chooseBoardSizeBox.Items[0];
         }
     }
 }
