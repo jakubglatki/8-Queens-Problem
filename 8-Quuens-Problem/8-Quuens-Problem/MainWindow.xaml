@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_8_Quuens_Problem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="N-Queens Problem" Height="640" Width="1280">
+    <Grid x:Name="gridView">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="242"/>
+            <ColumnDefinition Width="242"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="chessboard" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="770" Width="770" Background="IndianRed">
+
+        </Grid>
+
+        <StackPanel x:Name="textInfoPanel" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" >
+            <TextBlock x:Name="heuristicText" Margin="0,20,0,0" TextWrapping="Wrap" Text="Heuristic: " FontSize="20" VerticalAlignment="Top"/>
+            <TextBlock x:Name="stepsText"  Margin="0,20,0,0" TextWrapping="Wrap" Text="Number of steps: " FontSize="20" VerticalAlignment="Top"/>
+            <TextBlock x:Name="solvedText"  Margin="0,20,0,0" TextWrapping="Wrap" Text="Was the problem solved?" FontSize="20" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel x:Name="chooseSizePanel" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
+            <TextBlock x:Name="chooseBoardSizeText" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Board size" FontSize="20" FontWeight="Bold" />
+            <ComboBox x:Name="chooseBoardSizeBox" HorizontalAlignment="Center" Margin="0,20,0,0"  Width="Auto"/>
+        </StackPanel>
+
+        <StackPanel x:Name="chooseAlgorithmPanel" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="chooseAlgorithmText" TextWrapping="Wrap" Text="Choose algorithm" FontSize="20" FontWeight="Bold" VerticalAlignment="Top"/>
+            <CheckBox x:Name="hillClimbingBox" Content="Hill climbing​" Margin="0,20,0,0" Click="HillClimbingBox_Click"/>
+            <CheckBox x:Name="simulatedAnnealingBox" Content="Simulated annealing" Margin="0,20,0,0" Click="SimulatedAnnealingBox_Click"/>
+            <CheckBox x:Name="localBeamSearchBox" Content="Local beam search" Margin="0,20,0,0" Click="LocalBeamSearchBox_Click"/>
+            <CheckBox x:Name="geneticAlgorithmBox" Content="Genetic algorithm​" Margin="0,20,0,0" Click="GeneticAlgorithmBox_Click"/>
+        </StackPanel>
+
+        <StackPanel x:Name="algorithmAtributesPanel" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+        </StackPanel>
         
     </Grid>
 </Window>

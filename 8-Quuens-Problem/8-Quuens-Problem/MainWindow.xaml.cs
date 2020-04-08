@@ -20,9 +20,34 @@ namespace _8_Quuens_Problem
     /// </summary>
     public partial class MainWindow : Window
     {
+        static private Manager manager;
         public MainWindow()
         {
+            manager = new Manager(this);
             InitializeComponent();
+
+        }
+
+        private void HillClimbingBox_Click(object sender, RoutedEventArgs e)
+        {
+            manager.UncheckBoxes(this.hillClimbingBox);
+        }
+
+        private void SimulatedAnnealingBox_Click(object sender, RoutedEventArgs e)
+        {
+            manager.UncheckBoxes(this.simulatedAnnealingBox);
+        }
+
+        private void LocalBeamSearchBox_Click(object sender, RoutedEventArgs e)
+        {
+            manager.UncheckBoxes(this.localBeamSearchBox);
+
+        }
+
+        private void GeneticAlgorithmBox_Click(object sender, RoutedEventArgs e)
+        {
+            manager.UncheckBoxes(this.geneticAlgorithmBox);
+
         }
     }
 }

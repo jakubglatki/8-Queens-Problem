@@ -1,0 +1,15 @@
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\bin\Debug\8-Quuens-Problem.exe.config
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\bin\Debug\8-Quuens-Problem.exe
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\bin\Debug\8-Quuens-Problem.pdb
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem.csprojAssemblyReference.cache
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\MainWindow.g.cs
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\App.g.cs
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem_MarkupCompile.cache
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem_MarkupCompile.lref
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\MainWindow.baml
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem.g.resources
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\_8_Quuens_Problem.Properties.Resources.resources
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem.csproj.GenerateResource.cache
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem.csproj.CoreCompileInputs.cache
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem.exe
+D:\Users\Jakub Głatki\GitHub\8-Queens-Problem\8-Quuens-Problem\8-Quuens-Problem\obj\Debug\8-Quuens-Problem.pdb
