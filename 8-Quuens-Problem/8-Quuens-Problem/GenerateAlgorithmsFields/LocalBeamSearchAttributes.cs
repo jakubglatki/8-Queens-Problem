@@ -9,8 +9,8 @@ namespace _8_Quuens_Problem
 {
     class LocalBeamSearchAttributes : FullfilAlgorithmAttributes
     {
-        TextBox numberTB = new TextBox();
-        TextBox maxNumberTB = new TextBox();
+        TextBox numberTB;
+        TextBox maxNumberTB;
         public LocalBeamSearchAttributes(MainWindow mainWindow)
         {
             window = mainWindow;
@@ -18,6 +18,8 @@ namespace _8_Quuens_Problem
 
         public override void FillAlgorithmFields()
         {
+            numberTB = new TextBox();
+            maxNumberTB = new TextBox();
             window.algorithmAtributesPanel.Children.Clear();
             AlgorithmsAttributes algorithmAttributes = new AlgorithmsAttributes(window);
             algorithmAttributes.GenerateNewField(this.GetTextBlockText("Number of states"), numberTB);

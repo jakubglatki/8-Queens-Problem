@@ -9,8 +9,8 @@ namespace _8_Quuens_Problem
 {
     class SimulatedAnnealingAttributes : FullfilAlgorithmAttributes
     {
-        TextBox startingTB = new TextBox();
-        TextBox coolingTB = new TextBox();
+        TextBox startingTB;
+        TextBox coolingTB;
         public SimulatedAnnealingAttributes(MainWindow mainWindow)
         {
             window = mainWindow;
@@ -18,6 +18,8 @@ namespace _8_Quuens_Problem
 
         public override void FillAlgorithmFields()
         {
+            startingTB = new TextBox();
+            coolingTB = new TextBox();
             window.algorithmAtributesPanel.Children.Clear();
             AlgorithmsAttributes algorithmAttributes = new AlgorithmsAttributes(window);
             algorithmAttributes.GenerateNewField(this.GetTextBlockText("Starting temperature"), startingTB);

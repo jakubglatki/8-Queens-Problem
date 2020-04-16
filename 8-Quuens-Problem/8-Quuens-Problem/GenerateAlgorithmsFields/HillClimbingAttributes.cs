@@ -10,8 +10,13 @@ namespace _8_Quuens_Problem
 {
     public class HillClimbingAttributes : FullfilAlgorithmAttributes
     {
+        private TextBox maxNumberTB; 
 
-        TextBox maxNumberTB = new TextBox();
+
+        public TextBox getMaxNumberTB()
+        {
+            return this.maxNumberTB;
+        }
         public HillClimbingAttributes(MainWindow mainWindow)
         {
             window = mainWindow;
@@ -20,6 +25,7 @@ namespace _8_Quuens_Problem
 
         override public void FillAlgorithmFields()
         {
+            maxNumberTB = new TextBox();
             window.algorithmAtributesPanel.Children.Clear();
             AlgorithmsAttributes algorithmAttributes = new AlgorithmsAttributes(window);
             algorithmAttributes.GenerateNewField(this.GetTextBlockText("Maximum number of steps"), maxNumberTB);

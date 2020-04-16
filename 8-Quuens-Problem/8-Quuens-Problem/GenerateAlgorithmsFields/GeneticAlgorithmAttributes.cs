@@ -9,11 +9,11 @@ namespace _8_Quuens_Problem
 {
     class GeneticAlgorithmAttributes : FullfilAlgorithmAttributes
     {
-        TextBox sizeTB = new TextBox();
-        TextBox elitismTB = new TextBox();
-        TextBox crossoverTB = new TextBox();
-        TextBox mutationTB = new TextBox();
-        TextBox numberTB = new TextBox();
+        private TextBox sizeTB;
+        private TextBox elitismTB;
+        private TextBox crossoverTB;
+        private TextBox mutationTB;
+        private TextBox numberTB;
         public GeneticAlgorithmAttributes(MainWindow mainWindow)
         {
             window = mainWindow;
@@ -21,6 +21,11 @@ namespace _8_Quuens_Problem
 
         public override void FillAlgorithmFields()
         {
+            sizeTB = new TextBox();
+            elitismTB = new TextBox();
+            crossoverTB = new TextBox();
+            mutationTB = new TextBox();
+            numberTB = new TextBox();
             window.algorithmAtributesPanel.Children.Clear();
             AlgorithmsAttributes algorithmAttributes = new AlgorithmsAttributes(window);
             algorithmAttributes.GenerateNewField(this.GetTextBlockText("Size of single generation"), sizeTB);
