@@ -26,27 +26,36 @@ namespace _8_Quuens_Problem
             manager = new Manager(this);
             InitializeComponent();
             manager.AddBoardSizesToChooseList();
+
         }
 
         private void HillClimbingBox_Click(object sender, RoutedEventArgs e)
         {
             manager.UncheckBoxes(this.hillClimbingBox);
+            HillClimbingAttributes hillClimbingAttributes = new HillClimbingAttributes(this);
+            hillClimbingAttributes.FillAlgorithmFields();
         }
 
         private void SimulatedAnnealingBox_Click(object sender, RoutedEventArgs e)
         {
             manager.UncheckBoxes(this.simulatedAnnealingBox);
+            SimulatedAnnealingAttributes simulatedAnnealingAttributes = new SimulatedAnnealingAttributes(this);
+            simulatedAnnealingAttributes.FillAlgorithmFields();
         }
 
         private void LocalBeamSearchBox_Click(object sender, RoutedEventArgs e)
         {
             manager.UncheckBoxes(this.localBeamSearchBox);
+            LocalBeamSearchAttributes localBeamSearchAttributes = new LocalBeamSearchAttributes(this);
+            localBeamSearchAttributes.FillAlgorithmFields();
 
         }
 
         private void GeneticAlgorithmBox_Click(object sender, RoutedEventArgs e)
         {
             manager.UncheckBoxes(this.geneticAlgorithmBox);
+            GeneticAlgorithmAttributes geneticAlgorithmAttributes = new GeneticAlgorithmAttributes(this);
+            geneticAlgorithmAttributes.FillAlgorithmFields();
 
         }
     }
