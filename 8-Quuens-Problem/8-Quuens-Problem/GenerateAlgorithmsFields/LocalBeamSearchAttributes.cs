@@ -15,6 +15,14 @@ namespace _8_Quuens_Problem
         {
             window = mainWindow;
         }
+        public int GetNumber()
+        {
+            return this.ConvertTextBoxToInt(numberTB);
+        }
+        public int GetMaxNumber()
+        {
+            return this.ConvertTextBoxToInt(maxNumberTB);
+        }
 
         public override void FillAlgorithmFields()
         {

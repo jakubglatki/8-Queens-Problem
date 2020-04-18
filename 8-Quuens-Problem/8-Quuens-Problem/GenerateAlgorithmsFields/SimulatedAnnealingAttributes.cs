@@ -16,6 +16,15 @@ namespace _8_Quuens_Problem
             window = mainWindow;
         }
 
+        public int GetStarting()
+        {
+            return this.ConvertTextBoxToInt(startingTB);
+        }
+        public int GetCooling()
+        {
+            return this.ConvertTextBoxToInt(coolingTB);
+        }
+
         public override void FillAlgorithmFields()
         {
             startingTB = new TextBox();

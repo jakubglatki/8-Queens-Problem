@@ -13,9 +13,9 @@ namespace _8_Quuens_Problem
         private TextBox maxNumberTB; 
 
 
-        public TextBox getMaxNumberTB()
+        public int GetMaxNumberTB()
         {
-            return this.maxNumberTB;
+            return this.ConvertTextBoxToInt(maxNumberTB);
         }
         public HillClimbingAttributes(MainWindow mainWindow)
         {

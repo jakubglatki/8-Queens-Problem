@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Forms;
 
 namespace _8_Quuens_Problem
 {
@@ -12,13 +11,12 @@ namespace _8_Quuens_Problem
     {
         static protected MainWindow window;
 
-
-        protected void OnlyNumbers(object sender, KeyPressEventArgs e)
+        //all the non-digitis symbols are deleted in case of something going wrong
+        private string CleanStringOfNonDigits(string s)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&  (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
+            if (string.IsNullOrEmpty(s)) return s;
+            string cleaned = new string(s.Where(char.IsDigit).ToArray());
+            return cleaned;
         }
 
         //Text that will be shown saying what input will be requaired from the user
@@ -27,6 +25,17 @@ namespace _8_Quuens_Problem
             TextBlock textBlock = new TextBlock();
             textBlock.Text = text;
             return textBlock;
+        }
+
+        protected int ConvertTextBoxToInt(System.Windows.Controls.TextBox textBox)
+        {
+            if (textBox != null)
+            {
+                string s = CleanStringOfNonDigits(textBox.Text);
+                int x = Int32.Parse(s);
+                return x;
+            }
+            else return 0;
         }
 
         //Method calling AlgorithmAttributes class to fullfil the fields, that will be shown to the user

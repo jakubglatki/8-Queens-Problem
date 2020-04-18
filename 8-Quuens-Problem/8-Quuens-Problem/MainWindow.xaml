@@ -49,6 +49,7 @@
         <StackPanel x:Name="algorithmAtributesPanel" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             
         </StackPanel>
-        
+        <Button x:Name="runButton" Content="Run!" Grid.Column="3" HorizontalAlignment="Left" Margin="-40,0,0,40" Grid.Row="2" VerticalAlignment="Bottom" FontWeight="DemiBold" FontSize="20" Width="75" Background="LightGoldenrodYellow"/>
+
     </Grid>
 </Window>

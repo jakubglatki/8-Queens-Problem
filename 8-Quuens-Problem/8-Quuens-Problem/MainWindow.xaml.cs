@@ -54,14 +54,13 @@ namespace _8_Quuens_Problem
         {
             manager.UncheckBoxes(this.localBeamSearchBox);
             localBeamSearchAttributes.FillAlgorithmFields();
-
         }
 
         private void GeneticAlgorithmBox_Click(object sender, RoutedEventArgs e)
         {
             manager.UncheckBoxes(this.geneticAlgorithmBox);
             geneticAlgorithmAttributes.FillAlgorithmFields();
-
+            localBeamSearchAttributes.GetMaxNumber();
         }
     }
 }

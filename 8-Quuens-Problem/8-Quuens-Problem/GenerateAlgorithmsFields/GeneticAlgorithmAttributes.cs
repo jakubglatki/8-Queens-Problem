@@ -19,6 +19,32 @@ namespace _8_Quuens_Problem
             window = mainWindow;
         }
 
+        public int GetSize()
+        {
+            return this.ConvertTextBoxToInt(sizeTB);
+        }
+
+        public int GetElitism()
+        {
+            return this.ConvertTextBoxToInt(elitismTB);
+        }
+
+        public int GetCrossover()
+        {
+            return this.ConvertTextBoxToInt(crossoverTB);
+        }
+
+        public int GetMutation()
+        {
+            return this.ConvertTextBoxToInt(mutationTB);
+        }
+
+        public int GetNumber()
+        {
+            return this.ConvertTextBoxToInt(numberTB);
+        }
+
+
         public override void FillAlgorithmFields()
         {
             sizeTB = new TextBox();
