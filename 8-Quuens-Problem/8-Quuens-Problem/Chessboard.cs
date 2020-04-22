@@ -8,5 +8,11 @@ namespace _8_Quuens_Problem
 {
     class Chessboard
     {
+        private int[] queensPlacement;
+
+        public Chessboard(int size)
+        {
+            queensPlacement = new int[size];
+        }
     }
 }

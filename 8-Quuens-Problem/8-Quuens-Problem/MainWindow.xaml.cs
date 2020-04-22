@@ -60,7 +60,6 @@ namespace _8_Quuens_Problem
         {
             manager.UncheckBoxes(this.geneticAlgorithmBox);
             geneticAlgorithmAttributes.FillAlgorithmFields();
-            localBeamSearchAttributes.GetMaxNumber();
         }
     }
 }

@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Chessboard.cs" />
     <Compile Include="GenerateAlgorithmsFields\AlgorithmAttributes.cs" />
     <Compile Include="GenerateAlgorithmsFields\FullfilAlgorithmAttributes.cs" />
     <Compile Include="App.xaml.cs">
@@ -101,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
