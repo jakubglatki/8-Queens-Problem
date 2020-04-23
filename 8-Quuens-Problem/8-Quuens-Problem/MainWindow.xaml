@@ -23,7 +23,7 @@
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="chessboard" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="770" Width="770" Background="IndianRed">
+        <Grid x:Name="chessboardGrid" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="770" Width="770" Background="IndianRed">
 
         </Grid>
 

@@ -21,6 +21,7 @@ namespace _8_Quuens_Problem
     public partial class MainWindow : Window
     {
         static private Manager manager;
+
         private HillClimbingAttributes hillClimbingAttributes;
         private SimulatedAnnealingAttributes simulatedAnnealingAttributes;
         private LocalBeamSearchAttributes localBeamSearchAttributes;
@@ -35,7 +36,7 @@ namespace _8_Quuens_Problem
 
             InitializeComponent();
             manager.AddBoardSizesToChooseList();
-
+            Chessboard chessboard = new Chessboard(manager.ChessboardSizeToInt(),this);
         }
 
         private void HillClimbingBox_Click(object sender, RoutedEventArgs e)

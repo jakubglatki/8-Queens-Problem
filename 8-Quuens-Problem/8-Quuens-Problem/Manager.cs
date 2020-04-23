@@ -38,5 +38,13 @@ namespace _8_Quuens_Problem
             }
             window.chooseBoardSizeBox.SelectedItem = window.chooseBoardSizeBox.Items[0];
         }
+
+        public int ChessboardSizeToInt()
+        {
+            string sSize = window.chooseBoardSizeBox.Text;
+            sSize = sSize.Substring(0, sSize.IndexOf("x"));
+            int result = Int32.Parse(sSize);
+            return result;
+        }
     }
 }
