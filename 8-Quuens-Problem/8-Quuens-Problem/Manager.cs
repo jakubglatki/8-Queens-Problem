@@ -41,10 +41,11 @@ namespace _8_Quuens_Problem
 
         public int ChessboardSizeToInt()
         {
-            string sSize = window.chooseBoardSizeBox.Text;
+            string sSize = window.chooseBoardSizeBox.SelectedItem.ToString();
             sSize = sSize.Substring(0, sSize.IndexOf("x"));
             int result = Int32.Parse(sSize);
             return result;
         }
+
     }
 }

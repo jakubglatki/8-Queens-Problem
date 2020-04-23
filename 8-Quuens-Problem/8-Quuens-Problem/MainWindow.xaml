@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_8_Quuens_Problem"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="N-Queens Problem" Height="640" Width="1280">
+        Title="N-Queens Problem" Height="700" Width="1160">
     <Grid x:Name="gridView">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
@@ -23,7 +23,7 @@
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="chessboardGrid" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="770" Width="770" Background="IndianRed">
+        <Grid x:Name="chessboardGrid" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="610" Width="610" Background="DimGray">
 
         </Grid>
 
@@ -35,7 +35,7 @@
 
         <StackPanel x:Name="chooseSizePanel" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Top">
             <TextBlock x:Name="chooseBoardSizeText" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Board size" FontSize="20" FontWeight="Bold" />
-            <ComboBox x:Name="chooseBoardSizeBox" HorizontalAlignment="Center" Margin="0,20,0,0"  Width="80"/>
+            <ComboBox x:Name="chooseBoardSizeBox" HorizontalAlignment="Center" Margin="0,20,0,0"  Width="80" DropDownClosed="ChessboardSizeChanged"/>
         </StackPanel>
 
         <StackPanel x:Name="chooseAlgorithmPanel" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">

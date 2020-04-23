@@ -35,40 +35,69 @@ namespace _8_Quuens_Problem
 
         private void DrawChessboard()
         {
-            Image bright = new Image();
-            bright.Source = new BitmapImage(new Uri("D:/Users/Jakub Głatki/GitHub/8-Queens-Problem/8-Quuens-Problem/8-Quuens-Problem/Resources/bright.png"));
+            AddColumnsAndRowsToGrid();
 
-            Image dark = new Image();
-            dark.Source = new BitmapImage(new Uri("D:/Users/Jakub Głatki/GitHub/8-Queens-Problem/8-Quuens-Problem/8-Quuens-Problem/Resources/dark.png"));
 
+            int blackOrWhite;
             for (int i=0;i<queensPlacement.Length;i++)
             {
+                if (i % 2 == 0)
+                {
+                    blackOrWhite = 1;
+                }
+                else
+                {
+                    blackOrWhite = 0;
+                }
                 for (int j=0; j<queensPlacement.Length;j++)
                 {
-                    if (i == 0)
+
+                    if (j % 2 == blackOrWhite)
                     {
+                        Image bright = new Image();
+                        if (queensPlacement[j] != i)
+                        {
+                            bright.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/bright.png"));
+                        }
+                        else
+                        {
+                            bright.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/brightQ.png"));
+                        }
+
                         Grid.SetColumn(bright, j);
                         Grid.SetRow(bright, i);
+                        window.chessboardGrid.Children.Add(bright);
                     }
                     else
                     {
+                        Image dark = new Image();
+                        if (queensPlacement[j] != i)
+                        {
+                            dark.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/dark.png"));
+                        }
+                        else
+                        {
+                            dark.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/darkQ.png"));
+                        }
                         Grid.SetColumn(dark, j);
                         Grid.SetRow(dark, i);
+                        window.chessboardGrid.Children.Add(dark);
                     }
                 }
             }
-            window.chessboardGrid.Children.Add(bright);
-            window.chessboardGrid.Children.Add(dark);
         }
 
         private void AddColumnsAndRowsToGrid()
         {
+            double gridLength = window.chessboardGrid.Width/queensPlacement.Length;
             for (int i=0; i<queensPlacement.Length;i++)
             {
                 ColumnDefinition column = new ColumnDefinition();
+                column.Width =new System.Windows.GridLength(gridLength);
                 window.chessboardGrid.ColumnDefinitions.Add(column);
 
                 RowDefinition row = new RowDefinition();
+                row.Height = new System.Windows.GridLength(gridLength);
                 window.chessboardGrid.RowDefinitions.Add(row);
             }
         }

@@ -103,8 +103,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\bright.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\brightQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\darkQ.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

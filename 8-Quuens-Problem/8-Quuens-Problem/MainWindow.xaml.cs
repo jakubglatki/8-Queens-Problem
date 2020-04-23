@@ -26,6 +26,8 @@ namespace _8_Quuens_Problem
         private SimulatedAnnealingAttributes simulatedAnnealingAttributes;
         private LocalBeamSearchAttributes localBeamSearchAttributes;
         private GeneticAlgorithmAttributes geneticAlgorithmAttributes;
+
+        private Chessboard chessboard;
         public MainWindow()
         {
             manager = new Manager(this);
@@ -36,7 +38,7 @@ namespace _8_Quuens_Problem
 
             InitializeComponent();
             manager.AddBoardSizesToChooseList();
-            Chessboard chessboard = new Chessboard(manager.ChessboardSizeToInt(),this);
+            chessboard = new Chessboard(manager.ChessboardSizeToInt(),this);
         }
 
         private void HillClimbingBox_Click(object sender, RoutedEventArgs e)
@@ -61,6 +63,16 @@ namespace _8_Quuens_Problem
         {
             manager.UncheckBoxes(this.geneticAlgorithmBox);
             geneticAlgorithmAttributes.FillAlgorithmFields();
+        }
+
+
+        private void ChessboardSizeChanged(object sender, EventArgs e)
+        {
+            this.chessboardGrid.Children.Clear();
+            this.chessboardGrid.RowDefinitions.Clear();
+            this.chessboardGrid.ColumnDefinitions.Clear();
+            chessboard = new Chessboard(manager.ChessboardSizeToInt(), this);
+
         }
     }
 }
