@@ -9,21 +9,50 @@ using System.Windows.Media.Imaging;
 
 namespace _8_Quuens_Problem
 {
-    class Chessboard
+    public class Chessboard
     {
         private int[] queensPlacement;
+        private int heuristic;
         static private MainWindow window;
 
+
+        //initial chessboard
         public Chessboard(int size, MainWindow mainWindow)
         {
             window = mainWindow;
             queensPlacement = new int[size];
             this.FillWithRandomPlacements();
             this.DrawChessboard();
+
+        }
+
+        //chessboard object for solved chessboard
+        public Chessboard(int[] queensArray, MainWindow mainWindow)
+        {
+            window = mainWindow;
+            queensPlacement = queensArray;
+            this.DrawChessboard();
+
+            Utilities utilities = new Utilities();
+            heuristic = utilities.CountHeuristic(queensPlacement);
+            window.heuristicValueText.Text = heuristic.ToString();
         }
 
 
-        private void FillWithRandomPlacements()
+
+        public int[] GetQueensPlacament()
+        {
+            return this.queensPlacement;
+        }
+
+        public int GetHeuristic()
+        {
+            return this.heuristic;
+        }
+
+        
+
+        public void FillWithRandomPlacements()
         {
             Random randNum = new Random();
             for (int i = 0; i < this.queensPlacement.Length; i++)
@@ -33,7 +62,7 @@ namespace _8_Quuens_Problem
         }
 
 
-        private void DrawChessboard()
+        public void DrawChessboard()
         {
             AddColumnsAndRowsToGrid();
 
@@ -54,41 +83,46 @@ namespace _8_Quuens_Problem
 
                     if (j % 2 == blackOrWhite)
                     {
-                        Image bright = new Image();
-                        if (queensPlacement[j] != i)
-                        {
-                            bright.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/bright.png"));
-                        }
-                        else
-                        {
-                            bright.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/brightQ.png"));
-                        }
-
-                        Grid.SetColumn(bright, j);
-                        Grid.SetRow(bright, i);
-                        window.chessboardGrid.Children.Add(bright);
+                        SetFields(j, i, "bright");
                     }
                     else
                     {
-                        Image dark = new Image();
-                        if (queensPlacement[j] != i)
-                        {
-                            dark.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/dark.png"));
-                        }
-                        else
-                        {
-                            dark.Source = new BitmapImage(new Uri("pack://application:,,,/8-Quuens-Problem;component/Resources/darkQ.png"));
-                        }
-                        Grid.SetColumn(dark, j);
-                        Grid.SetRow(dark, i);
-                        window.chessboardGrid.Children.Add(dark);
+                        SetFields(j, i, "dark");
                     }
                 }
             }
+
+            Utilities utilities = new Utilities();
+            heuristic = utilities.CountHeuristic(queensPlacement);
+            window.heuristicValueText.Text = heuristic.ToString();
         }
+
+        //method setting fields to proper image
+        private void SetFields(int j, int i, string field)
+        {
+            Image bright = new Image();
+            string pathString = "pack://application:,,,/8-Quuens-Problem;component/Resources/";
+            if (queensPlacement[j] != i)
+            {
+                bright.Source = new BitmapImage(new Uri(pathString+field+".png"));
+            }
+            else
+            {
+                bright.Source = new BitmapImage(new Uri(pathString+field +"Q.png"));
+            }
+
+            Grid.SetColumn(bright, j);
+            Grid.SetRow(bright, i);
+            window.chessboardGrid.Children.Add(bright);
+
+        }
+
 
         private void AddColumnsAndRowsToGrid()
         {
+            window.chessboardGrid.Children.Clear();
+            window.chessboardGrid.ColumnDefinitions.Clear();
+            window.chessboardGrid.RowDefinitions.Clear();
             double gridLength = window.chessboardGrid.Width/queensPlacement.Length;
             for (int i=0; i<queensPlacement.Length;i++)
             {

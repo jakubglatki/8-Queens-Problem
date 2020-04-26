@@ -1,10 +1,12 @@
-﻿using System;
+﻿using _8_Quuens_Problem.Algorithm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace _8_Quuens_Problem
 {
@@ -47,5 +49,21 @@ namespace _8_Quuens_Problem
             return result;
         }
 
+        public void HillClimbingAlgorithm()
+        {
+            HillClimbingAlgorithm hillClimbing = new HillClimbingAlgorithm(window);
+            hillClimbing.SolveProblem(window.GetChessboard(), window.hillClimbingAttributes.GetMaxNumberTB());
+            window.stepsValueText.Text = hillClimbing.GetNumberOfSteps().ToString();
+            if (hillClimbing.GetHeuristic() == 0)
+            {
+                window.solvedTextValue.Foreground = Brushes.DarkGreen;
+                window.solvedTextValue.Text = "Yes";
+            }
+            else
+            {
+                window.solvedTextValue.Foreground = Brushes.DarkRed;
+                window.solvedTextValue.Text = "No";
+            }
+        }
     }
 }

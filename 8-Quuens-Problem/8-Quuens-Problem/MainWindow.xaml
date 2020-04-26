@@ -28,9 +28,19 @@
         </Grid>
 
         <StackPanel x:Name="textInfoPanel" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" >
-            <TextBlock x:Name="heuristicText" Margin="0,20,0,0" TextWrapping="Wrap" Text="Heuristic: " FontSize="20" VerticalAlignment="Top"/>
-            <TextBlock x:Name="stepsText"  Margin="0,20,0,0" TextWrapping="Wrap" Text="Number of steps: " FontSize="20" VerticalAlignment="Top"/>
-            <TextBlock x:Name="solvedText"  Margin="0,20,0,0" TextWrapping="Wrap" Text="Was the problem solved?" FontSize="20" VerticalAlignment="Top"/>
+            <StackPanel x:Name="heuristicPanel" Margin="0,20,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="heuristicText"  TextWrapping="Wrap" Text="Heuristic: " FontSize="20" VerticalAlignment="Top"/>
+                <TextBlock x:Name="heuristicValueText"  TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
+            </StackPanel>
+            <StackPanel x:Name="stepsPanel" Margin="0,20,0,0" Orientation="Horizontal">
+                <TextBlock x:Name="stepsText" TextWrapping="Wrap" Text="Number of steps: " FontSize="20" VerticalAlignment="Top"/>
+                <TextBlock x:Name="stepsValueText" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top"/>
+            </StackPanel>
+            <StackPanel x:Name="solvedPanel" Margin="0,20,0,0">
+                <TextBlock x:Name="solvedText"  TextWrapping="Wrap" Text="Was the problem solved?" FontSize="20" VerticalAlignment="Top"/>
+                <TextBlock x:Name="solvedTextValue" Margin="0,10,0,0"  TextWrapping="Wrap"  FontSize="20" VerticalAlignment="Top"/>
+           
+            </StackPanel>
         </StackPanel>
 
         <StackPanel x:Name="chooseSizePanel" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Top">
@@ -49,7 +59,7 @@
         <StackPanel x:Name="algorithmAtributesPanel" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             
         </StackPanel>
-        <Button x:Name="runButton" Content="Run!" Grid.Column="3" HorizontalAlignment="Left" Margin="-40,0,0,40" Grid.Row="2" VerticalAlignment="Bottom" FontWeight="DemiBold" FontSize="20" Width="75" Background="LightGoldenrodYellow"/>
+        <Button x:Name="runButton" Content="Run!" Grid.Column="3" HorizontalAlignment="Left" Margin="-40,0,0,40" Grid.Row="2" VerticalAlignment="Bottom" FontWeight="DemiBold" FontSize="20" Width="75" Background="LightGoldenrodYellow" Click="RunButtonClick" />
 
     </Grid>
 </Window>

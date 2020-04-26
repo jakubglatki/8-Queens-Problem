@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace _8_Quuens_Problem
 {
-    class SimulatedAnnealingAttributes : FullfilAlgorithmAttributes
+    public class SimulatedAnnealingAttributes : FullfilAlgorithmAttributes
     {
         TextBox startingTB;
         TextBox coolingTB;

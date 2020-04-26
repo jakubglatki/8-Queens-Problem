@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _8_Quuens_Problem.Algorithm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,13 @@ namespace _8_Quuens_Problem
     {
         static private Manager manager;
 
-        private HillClimbingAttributes hillClimbingAttributes;
-        private SimulatedAnnealingAttributes simulatedAnnealingAttributes;
-        private LocalBeamSearchAttributes localBeamSearchAttributes;
-        private GeneticAlgorithmAttributes geneticAlgorithmAttributes;
+        public HillClimbingAttributes hillClimbingAttributes;
+        public SimulatedAnnealingAttributes simulatedAnnealingAttributes;
+        public LocalBeamSearchAttributes localBeamSearchAttributes;
+        public GeneticAlgorithmAttributes geneticAlgorithmAttributes;
 
         private Chessboard chessboard;
+        private Utilities utilities;
         public MainWindow()
         {
             manager = new Manager(this);
@@ -38,7 +40,13 @@ namespace _8_Quuens_Problem
 
             InitializeComponent();
             manager.AddBoardSizesToChooseList();
+            utilities = new Utilities();
             chessboard = new Chessboard(manager.ChessboardSizeToInt(),this);
+        }
+
+        public Chessboard GetChessboard()
+        {
+            return chessboard;
         }
 
         private void HillClimbingBox_Click(object sender, RoutedEventArgs e)
@@ -65,14 +73,23 @@ namespace _8_Quuens_Problem
             geneticAlgorithmAttributes.FillAlgorithmFields();
         }
 
-
+        //after changing size of the chessboard the new one will be generated, with the previous grid "chessboardGrid" completely cleared
         private void ChessboardSizeChanged(object sender, EventArgs e)
         {
             this.chessboardGrid.Children.Clear();
             this.chessboardGrid.RowDefinitions.Clear();
             this.chessboardGrid.ColumnDefinitions.Clear();
             chessboard = new Chessboard(manager.ChessboardSizeToInt(), this);
+            this.stepsValueText.Text = "";
+            this.solvedTextValue.Text = "";
+        }
 
+        private void RunButtonClick(object sender, RoutedEventArgs e)
+        {
+            if(hillClimbingBox.IsChecked==true)
+            {
+                manager.HillClimbingAlgorithm();
+            }    
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace _8_Quuens_Problem
 {
-    class LocalBeamSearchAttributes : FullfilAlgorithmAttributes
+    public class LocalBeamSearchAttributes : FullfilAlgorithmAttributes
     {
         TextBox numberTB;
         TextBox maxNumberTB;

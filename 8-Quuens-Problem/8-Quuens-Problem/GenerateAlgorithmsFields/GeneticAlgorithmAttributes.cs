@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace _8_Quuens_Problem
 {
-    class GeneticAlgorithmAttributes : FullfilAlgorithmAttributes
+    public class GeneticAlgorithmAttributes : FullfilAlgorithmAttributes
     {
         private TextBox sizeTB;
         private TextBox elitismTB;

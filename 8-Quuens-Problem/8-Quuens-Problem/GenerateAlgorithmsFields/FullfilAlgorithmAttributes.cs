@@ -16,6 +16,7 @@ namespace _8_Quuens_Problem
         {
             if (string.IsNullOrEmpty(s)) return s;
             string cleaned = new string(s.Where(char.IsDigit).ToArray());
+            if (cleaned == ""){ return "0"; }
             return cleaned;
         }
 
@@ -29,7 +30,7 @@ namespace _8_Quuens_Problem
 
         protected int ConvertTextBoxToInt(System.Windows.Controls.TextBox textBox)
         {
-            if (textBox != null)
+            if (textBox.Text != "")
             {
                 string s = CleanStringOfNonDigits(textBox.Text);
                 int x = Int32.Parse(s);
