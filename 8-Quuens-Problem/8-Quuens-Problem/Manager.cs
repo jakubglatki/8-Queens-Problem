@@ -85,7 +85,20 @@ namespace _8_Quuens_Problem
         }
         public void LocalBeamSearchAlgorithm()
         {
-            //LocalBeamSearchAlgorithm localBeamSearch = new LocalBeamSearchAlgorithm();
+            LocalBeamSearchAlgorithm localBeamSearch = new LocalBeamSearchAlgorithm(window);
+            localBeamSearch.SolveProblem(window.GetChessboard(),
+                window.localBeamSearchAttributes.GetMaxNumber(), window.localBeamSearchAttributes.GetNumberOfStates());
+            window.stepsValueText.Text = localBeamSearch.GetNumberOfSteps().ToString();
+            if (localBeamSearch.GetHeuristic() == 0)
+            {
+                window.solvedTextValue.Foreground = Brushes.DarkGreen;
+                window.solvedTextValue.Text = "Yes";
+            }
+            else
+            {
+                window.solvedTextValue.Foreground = Brushes.DarkRed;
+                window.solvedTextValue.Text = "No";
+            }
         }
         public void GeneticAlgorithm()
         {

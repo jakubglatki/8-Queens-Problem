@@ -15,6 +15,11 @@ namespace _8_Quuens_Problem
         private int heuristic;
         static private MainWindow window;
 
+        public Chessboard(int size)
+        {
+            queensPlacement = new int[size];
+            this.FillWithRandomPlacements();
+        }
 
         //initial chessboard
         public Chessboard(int size, MainWindow mainWindow)

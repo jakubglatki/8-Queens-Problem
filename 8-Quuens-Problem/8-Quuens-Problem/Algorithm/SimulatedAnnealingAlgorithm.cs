@@ -55,7 +55,8 @@ namespace _8_Quuens_Problem.Algorithm
                 temperature = temperature - coolingFactor;
                 numberOfSteps++;
             }
-            Chessboard drawCheesboard = new Chessboard(queensPlacement, window);
+            chessboard.DrawChessboard();
+            //Chessboard drawCheesboard = new Chessboard(queensPlacement, window);
         }
     }
 }
