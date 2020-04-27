@@ -15,7 +15,7 @@ namespace _8_Quuens_Problem
         {
             window = mainWindow;
         }
-        public int GetNumber()
+        public int GetNumberOfStates()
         {
             return this.ConvertTextBoxToInt(numberTB);
         }

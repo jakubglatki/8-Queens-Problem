@@ -8,17 +8,11 @@ namespace _8_Quuens_Problem.Algorithm
 {
     public class HillClimbingAlgorithm : Utilities
     {
-        private int numberOfSteps;
-        static private MainWindow window;
         public HillClimbingAlgorithm(MainWindow mainWindow)
         {
             window = mainWindow;
         }
 
-        public int GetNumberOfSteps()
-        {
-            return numberOfSteps;
-        }
 
         public void SolveProblem(Chessboard chessboard, int maxNumberOfSteps)
         {
@@ -31,7 +25,7 @@ namespace _8_Quuens_Problem.Algorithm
             //array to check heuristic of all position when queen moves verticaly
             int[] heuristicArray = new int[queensPlacement.Length];
 
-            heuristic = CountHeuristic(queensPlacement);
+            heuristic = CalculateHeuristic(queensPlacement);
             numberOfSteps = 0;
 
             while (numberOfSteps < maxNumberOfSteps && heuristic > 0)
@@ -42,7 +36,7 @@ namespace _8_Quuens_Problem.Algorithm
                     for (int j = 0; j < queensPlacement.Length; j++)
                     {
                         queensPlacement[i] = j;
-                        heuristicArray[j] = CountHeuristic(queensPlacement);
+                        heuristicArray[j] = CalculateHeuristic(queensPlacement);
                     }
 
                     //it will set queen to the position with the least heuristic
@@ -57,10 +51,12 @@ namespace _8_Quuens_Problem.Algorithm
                     queensPlacement = chessboard.GetQueensPlacament();
                 }
 
-                heuristic = CountHeuristic(queensPlacement);
+                heuristic = CalculateHeuristic(queensPlacement);
                 numberOfSteps++;
             }
-            chessboard.DrawChessboard();
+            //  chessboard.SetQueensPlacement(queensPlacement);
+            // chessboard.DrawChessboard();
+            Chessboard drawCheesboard = new Chessboard(queensPlacement, window);
         }
 
 

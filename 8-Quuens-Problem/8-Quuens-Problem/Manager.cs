@@ -65,5 +65,30 @@ namespace _8_Quuens_Problem
                 window.solvedTextValue.Text = "No";
             }
         }
+
+        public void SimulatedAnnealingAlgorithm()
+        {
+            SimulatedAnnealingAlgorithm simulatedAnnealing = new SimulatedAnnealingAlgorithm(window);
+            simulatedAnnealing.SolveProblem(window.GetChessboard(),
+                window.simulatedAnnealingAttributes.GetStartingTemperature(), window.simulatedAnnealingAttributes.GetCoolingFactor());
+            window.stepsValueText.Text = simulatedAnnealing.GetNumberOfSteps().ToString();
+            if (simulatedAnnealing.GetHeuristic() == 0)
+            {
+                window.solvedTextValue.Foreground = Brushes.DarkGreen;
+                window.solvedTextValue.Text = "Yes";
+            }
+            else
+            {
+                window.solvedTextValue.Foreground = Brushes.DarkRed;
+                window.solvedTextValue.Text = "No";
+            }
+        }
+        public void LocalBeamSearchAlgorithm()
+        {
+            //LocalBeamSearchAlgorithm localBeamSearch = new LocalBeamSearchAlgorithm();
+        }
+        public void GeneticAlgorithm()
+        {
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace _8_Quuens_Problem
     public class Utilities
     {
         protected int heuristic;
+        protected int numberOfSteps;
+        static protected MainWindow window;
         public Utilities() { }
 
 
@@ -16,8 +18,15 @@ namespace _8_Quuens_Problem
         {
             return heuristic;
         }
+
+
+        public int GetNumberOfSteps()
+        {
+            return numberOfSteps;
+        }
+
         //Heuristic is getting bigger each time two pieces are in the same row/are sharing the same diagonal line
-        public int CountHeuristic(int[] chessboard)
+        public int CalculateHeuristic(int[] chessboard)
         {
             int heuristic = 0;
 
@@ -32,7 +41,6 @@ namespace _8_Quuens_Problem
             return heuristic;
         }
 
-
         protected bool ArrayNotChanged(int[] firstA, int[] secondA)
         {
             for (int i = 0; i < firstA.Length; i++)
@@ -43,6 +51,12 @@ namespace _8_Quuens_Problem
                 }
             }
             return true;
+        }
+
+        protected int GenerateRandomNumber(int min, int max)
+        {
+            Random number = new Random();
+            return number.Next(min, max);
         }
     }
 }

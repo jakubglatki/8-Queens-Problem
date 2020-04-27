@@ -90,6 +90,20 @@ namespace _8_Quuens_Problem
             {
                 manager.HillClimbingAlgorithm();
             }    
+            
+            else if (simulatedAnnealingBox.IsChecked==true)
+            {
+                manager.SimulatedAnnealingAlgorithm();
+            }
+
+            else if(localBeamSearchBox.IsChecked==true)
+            {
+                manager.LocalBeamSearchAlgorithm();
+            }
+            else if(geneticAlgorithmBox.IsChecked==true)
+            {
+                manager.GeneticAlgorithm();
+            }
         }
     }
 }

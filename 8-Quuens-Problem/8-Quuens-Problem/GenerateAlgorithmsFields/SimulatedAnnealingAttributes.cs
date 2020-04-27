@@ -16,11 +16,11 @@ namespace _8_Quuens_Problem
             window = mainWindow;
         }
 
-        public int GetStarting()
+        public int GetStartingTemperature()
         {
             return this.ConvertTextBoxToInt(startingTB);
         }
-        public int GetCooling()
+        public int GetCoolingFactor()
         {
             return this.ConvertTextBoxToInt(coolingTB);
         }

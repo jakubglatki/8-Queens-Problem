@@ -33,13 +33,12 @@ namespace _8_Quuens_Problem
             queensPlacement = queensArray;
             this.DrawChessboard();
 
-            Utilities utilities = new Utilities();
-            heuristic = utilities.CountHeuristic(queensPlacement);
-            window.heuristicValueText.Text = heuristic.ToString();
         }
 
-
-
+        public void SetQueensPlacement(int[] queensArray)
+        {
+            this.queensPlacement = queensArray;
+        }
         public int[] GetQueensPlacament()
         {
             return this.queensPlacement;
@@ -93,7 +92,7 @@ namespace _8_Quuens_Problem
             }
 
             Utilities utilities = new Utilities();
-            heuristic = utilities.CountHeuristic(queensPlacement);
+            heuristic = utilities.CalculateHeuristic(queensPlacement);
             window.heuristicValueText.Text = heuristic.ToString();
         }
 
