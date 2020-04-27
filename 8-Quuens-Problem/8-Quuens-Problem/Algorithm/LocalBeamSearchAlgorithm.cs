@@ -17,12 +17,12 @@ namespace _8_Quuens_Problem.Algorithm
         {
             int size = chessboard.GetQueensPlacament().Length;
             List<Chessboard> chessboardStates = GenerateChessboardsList(size, numberOfStates);
-            Chessboard bestChessboard = GetChessboardWithLowestHeuristic(chessboardStates, size);
+            Chessboard bestChessboard = GetChessboardWithLowestHeuristic(chessboardStates, numberOfStates);
             heuristic = CalculateHeuristic(bestChessboard.GetQueensPlacament());
 
             while (maxNumberOfSteps>numberOfSteps && heuristic>0)
             {
-                bestChessboard = GetChessboardWithLowestHeuristic(chessboardStates, size);
+                bestChessboard = GetChessboardWithLowestHeuristic(chessboardStates, numberOfStates);
                 heuristic = CalculateHeuristic(bestChessboard.GetQueensPlacament());
                 if(heuristic==0)
                 {
@@ -39,12 +39,12 @@ namespace _8_Quuens_Problem.Algorithm
                         for (int j = 0; j < size; j++)
                         {
                             chessboardStates[n].GetQueensPlacament()[i] = j;
-                            heuristicArray[j] = CalculateHeuristic(chessboardStates[i].GetQueensPlacament());
+                            heuristicArray[j] = CalculateHeuristic(chessboardStates[n].GetQueensPlacament());
                         }
 
                         //it will set queen to the position with the least heuristic
                         int index = Array.IndexOf(heuristicArray, heuristicArray.Min());
-                        chessboardStates[i].GetQueensPlacament()[i] = index;
+                        chessboardStates[n].GetQueensPlacament()[i] = index;
 
                     }
 
@@ -54,14 +54,11 @@ namespace _8_Quuens_Problem.Algorithm
                         chessboardStates[n].SetQueensPlacement(chessboard.GetQueensPlacament());
                     }
                 }
+                bestChessboard = GetChessboardWithLowestHeuristic(chessboardStates, numberOfStates);
                 heuristic = CalculateHeuristic(bestChessboard.GetQueensPlacament());
                 numberOfSteps++;
             }
-           //
-            
-            
-            
-            bestChessboard.DrawChessboard();
+           // bestChessboard.DrawChessboard();
             Chessboard drawChessboard = new Chessboard(bestChessboard.GetQueensPlacament(), window);
         }
 
@@ -83,7 +80,7 @@ namespace _8_Quuens_Problem.Algorithm
             Chessboard chessboardToReturn = chessboardsList[0];
             int lowestHeuristic = CalculateHeuristic(chessboardsList[0].GetQueensPlacament());
             
-            for(int i=1;i<size;i++)
+            for(int i=0;i<size;i++)
             {
                 int tempHeuristic = CalculateHeuristic(chessboardsList[i].GetQueensPlacament());
                 if (tempHeuristic < lowestHeuristic)
