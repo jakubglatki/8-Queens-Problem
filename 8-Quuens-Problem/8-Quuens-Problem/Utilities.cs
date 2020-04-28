@@ -11,6 +11,8 @@ namespace _8_Quuens_Problem
         protected int heuristic;
         protected int numberOfSteps;
         static protected MainWindow window;
+        private static readonly object syncLock = new object();
+        private static readonly Random random = new Random();
         public Utilities() { }
 
 
@@ -55,8 +57,42 @@ namespace _8_Quuens_Problem
 
         protected int GenerateRandomNumber(int min, int max)
         {
-            Random number = new Random();
-            return number.Next(min, max);
+            lock (syncLock)
+            {
+                return random.Next(min, max);
+            }
+        }
+
+        protected List<Chessboard> GenerateChessboardsList(int size, int numberOfStates)
+        {
+            List<Chessboard> chessboardStates = new List<Chessboard>(numberOfStates);
+
+            for (int i = 0; i < numberOfStates; i++)
+            {
+                Chessboard chessboard = new Chessboard(size);
+                chessboardStates.Add(chessboard);
+            }
+            return chessboardStates;
+        }
+
+
+
+        protected Chessboard GetChessboardWithLowestHeuristic(List<Chessboard> chessboardsList, int size)
+        {
+            Chessboard chessboardToReturn = chessboardsList[0];
+            int lowestHeuristic = CalculateHeuristic(chessboardsList[0].GetQueensPlacament());
+
+            for (int i = 0; i < size; i++)
+            {
+                int tempHeuristic = CalculateHeuristic(chessboardsList[i].GetQueensPlacament());
+                if (tempHeuristic < lowestHeuristic)
+                {
+                    lowestHeuristic = tempHeuristic;
+                    chessboardToReturn = chessboardsList[i];
+                }
+            }
+
+            return chessboardToReturn;
         }
     }
 }

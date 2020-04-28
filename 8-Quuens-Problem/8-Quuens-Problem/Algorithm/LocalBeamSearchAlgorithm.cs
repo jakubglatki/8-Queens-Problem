@@ -62,35 +62,8 @@ namespace _8_Quuens_Problem.Algorithm
             Chessboard drawChessboard = new Chessboard(bestChessboard.GetQueensPlacament(), window);
         }
 
-        private List<Chessboard> GenerateChessboardsList(int size, int numberOfStates)
-        {
-            List<Chessboard> chessboardStates = new List<Chessboard>();
 
-            for (int i = 0; i < numberOfStates; i++)
-            {
-                Chessboard chessboard = new Chessboard(size);
-                chessboardStates.Add(chessboard);
-            }
 
-            return chessboardStates;
-        }
 
-        private Chessboard GetChessboardWithLowestHeuristic(List<Chessboard> chessboardsList, int size)
-        {
-            Chessboard chessboardToReturn = chessboardsList[0];
-            int lowestHeuristic = CalculateHeuristic(chessboardsList[0].GetQueensPlacament());
-            
-            for(int i=0;i<size;i++)
-            {
-                int tempHeuristic = CalculateHeuristic(chessboardsList[i].GetQueensPlacament());
-                if (tempHeuristic < lowestHeuristic)
-                {
-                    lowestHeuristic = tempHeuristic;
-                    chessboardToReturn = chessboardsList[i];
-                }
-            }
-
-            return chessboardToReturn;
-        }
     }
 }

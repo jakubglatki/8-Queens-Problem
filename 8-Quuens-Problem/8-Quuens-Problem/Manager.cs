@@ -53,17 +53,7 @@ namespace _8_Quuens_Problem
         {
             HillClimbingAlgorithm hillClimbing = new HillClimbingAlgorithm(window);
             hillClimbing.SolveProblem(window.GetChessboard(), window.hillClimbingAttributes.GetMaxNumberTB());
-            window.stepsValueText.Text = hillClimbing.GetNumberOfSteps().ToString();
-            if (hillClimbing.GetHeuristic() == 0)
-            {
-                window.solvedTextValue.Foreground = Brushes.DarkGreen;
-                window.solvedTextValue.Text = "Yes";
-            }
-            else
-            {
-                window.solvedTextValue.Foreground = Brushes.DarkRed;
-                window.solvedTextValue.Text = "No";
-            }
+            this.SetUITextes(hillClimbing);
         }
 
         public void SimulatedAnnealingAlgorithm()
@@ -71,25 +61,29 @@ namespace _8_Quuens_Problem
             SimulatedAnnealingAlgorithm simulatedAnnealing = new SimulatedAnnealingAlgorithm(window);
             simulatedAnnealing.SolveProblem(window.GetChessboard(),
                 window.simulatedAnnealingAttributes.GetStartingTemperature(), window.simulatedAnnealingAttributes.GetCoolingFactor());
-            window.stepsValueText.Text = simulatedAnnealing.GetNumberOfSteps().ToString();
-            if (simulatedAnnealing.GetHeuristic() == 0)
-            {
-                window.solvedTextValue.Foreground = Brushes.DarkGreen;
-                window.solvedTextValue.Text = "Yes";
-            }
-            else
-            {
-                window.solvedTextValue.Foreground = Brushes.DarkRed;
-                window.solvedTextValue.Text = "No";
-            }
+            this.SetUITextes(simulatedAnnealing);
         }
         public void LocalBeamSearchAlgorithm()
         {
             LocalBeamSearchAlgorithm localBeamSearch = new LocalBeamSearchAlgorithm(window);
             localBeamSearch.SolveProblem(window.GetChessboard(),
                 window.localBeamSearchAttributes.GetMaxNumber(), window.localBeamSearchAttributes.GetNumberOfStates());
-            window.stepsValueText.Text = localBeamSearch.GetNumberOfSteps().ToString();
-            if (localBeamSearch.GetHeuristic() == 0)
+            this.SetUITextes(localBeamSearch);
+        }
+        public void GeneticAlgorithm()
+        {
+            GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(window);
+            geneticAlgorithm.SolveProblem(window.GetChessboard(), window.geneticAlgorithmAttributes.GetSize(),
+                window.geneticAlgorithmAttributes.GetElitism(), window.geneticAlgorithmAttributes.GetCrossover(),
+                window.geneticAlgorithmAttributes.GetMutation(), window.geneticAlgorithmAttributes.GetNumber());
+            this.SetUITextes(geneticAlgorithm);
+        }
+
+
+        private void SetUITextes(Utilities algorithmAttributes)
+        {
+            window.stepsValueText.Text = algorithmAttributes.GetNumberOfSteps().ToString();
+            if (algorithmAttributes.GetHeuristic() == 0)
             {
                 window.solvedTextValue.Foreground = Brushes.DarkGreen;
                 window.solvedTextValue.Text = "Yes";
@@ -99,9 +93,6 @@ namespace _8_Quuens_Problem
                 window.solvedTextValue.Foreground = Brushes.DarkRed;
                 window.solvedTextValue.Text = "No";
             }
-        }
-        public void GeneticAlgorithm()
-        {
         }
     }
 }

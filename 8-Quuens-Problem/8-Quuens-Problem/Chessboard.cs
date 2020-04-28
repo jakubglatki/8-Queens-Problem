@@ -14,6 +14,8 @@ namespace _8_Quuens_Problem
         private int[] queensPlacement;
         private int heuristic;
         static private MainWindow window;
+        private static readonly object syncLock = new object();
+        private static readonly Random random = new Random();
 
         public Chessboard(int size)
         {
@@ -49,6 +51,10 @@ namespace _8_Quuens_Problem
             return this.queensPlacement;
         }
 
+        public void SetHeuristic(int number)
+        {
+            this.heuristic = number;
+        }
         public int GetHeuristic()
         {
             return this.heuristic;
@@ -58,10 +64,12 @@ namespace _8_Quuens_Problem
 
         public void FillWithRandomPlacements()
         {
-            Random randNum = new Random();
             for (int i = 0; i < this.queensPlacement.Length; i++)
             {
-                this.queensPlacement[i] = randNum.Next(0, queensPlacement.Length);
+                lock (syncLock)
+                {
+                    this.queensPlacement[i] = random.Next(0, queensPlacement.Length);
+                }
             }
         }
 
